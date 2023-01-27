@@ -1,0 +1,53 @@
+/* .container{
+  display: flex;
+  flex-direction: row;
+  border: 2px black solid;
+  width: 500px;
+  margin: auto;
+}
+.conectar{
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+.enviar{
+  display: flex;
+  align-items: center;
+ 
+}
+.enviar input, button{
+height: 30px;
+margin: 5px;
+}
+.enviar button{
+  width: 100px;
+} */
+
+.container-fluid{
+  display: flex;
+}
+
+.row .container-lateral-menu{
+  width: 300px ;
+  border-right: 2px blue solid;
+}
+.nav-item{
+  padding: 5px 0px 5px 20px;
+}
+.nav-item .nav-link{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.message-container{
+  height: 500px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}::-webkit-scrollbar{
+  display: none;
+}
+
+.input-message{
+  resize: none;
+}

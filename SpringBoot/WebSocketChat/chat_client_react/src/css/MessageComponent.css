@@ -1,0 +1,18 @@
+.message-group-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.form-control{
+    text-align: left;
+
+}
+
+.message{
+    width: 250px !important;
+    margin: 0;
+}
+.form-text{
+    width: 100%;
+}
