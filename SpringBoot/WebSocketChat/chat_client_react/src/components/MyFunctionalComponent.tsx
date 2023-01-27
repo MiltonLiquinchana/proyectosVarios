@@ -76,6 +76,7 @@ export default function MyFunctionalComponent() {
       [e.target.name]: e.target.value,
     });
   };
+  /**Función que ejecuta la notificación a los usuario que se escribe */
   const handleNotify = (): void => {
     if (!client) {
       return;

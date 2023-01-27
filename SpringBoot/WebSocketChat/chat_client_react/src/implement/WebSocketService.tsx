@@ -4,27 +4,20 @@ import OutputMessage from "../model/OutputMessage";
 import MessageComponent from "../components/view/MessageComponent";
 import InputMessage from "../model/InputMessage";
 import OutputNotify from "../model/OutputNotify";
-interface MyComponent {
-  setMessages: Function;
-}
 
 export default class WebSocketService implements IWebSocketService {
   private client: webstomp.Client | null;
   private setMessages: Function;
-  private options = {
-    debug: true,
-    reconnect_delay: 5000,
-  };
 
   constructor(setMessages: Function) {
     this.client = null;
     this.setMessages = setMessages;
   }
 
-  /**funcion que realiza la conexion al servidor websocket */
+  /**función que realiza la conexión al servidor websocket */
   connect(myUser: string): void {
     this.client = webstomp.over(new WebSocket("ws://localhost:8080/ws"));
-    // this.client = webstomp.client("ws://localhost:8080/server");
+    // this client = webstomp client ("ws://localhost:8080/server")
     this.client.connect(
       {},
       (frame) => {
@@ -52,7 +45,7 @@ export default class WebSocketService implements IWebSocketService {
     }
   }
 
-  /**Funcion que sirve para enviar mensajes a un usuario */
+  /**Función que sirve para enviar mensajes a un usuario */
   send(message: OutputMessage): void {
     console.log("Enviando...");
     if (!this.client) {
@@ -78,7 +71,7 @@ export default class WebSocketService implements IWebSocketService {
     if (!this.client) {
       return;
     }
-    /**Para recordar en el servidor definimos dos endpoints uno para usarios, es decir para
+    /**Para recordar en el servidor definimos dos endpoints uno para usuarios, es decir para
      * comunicaciones privadas, y otro para un chat General
      */
     this.client.subscribe(`/user/${myUser}/queue/messages`, (message) => {
@@ -89,7 +82,7 @@ export default class WebSocketService implements IWebSocketService {
     if (!this.client) {
       return;
     }
-    /**Para recordar en el servidor definimos dos endpoints uno para usarios, es decir para
+    /**Para recordar en el servidor definimos dos endpoints uno para usuarios, es decir para
      * comunicaciones privadas, y otro para un chat General
      */
     this.client.subscribe(`/user/${myUser}/queue/notify`, (notify) => {
